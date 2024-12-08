@@ -220,11 +220,15 @@
     </main>
     <footer class="text-center mt-14">
       <p class="text-green-900">
-        <span class="noto">&copy;</span>&thinsp;2025 Chen Yikai. MIT License
+        <span class="noto">&copy;</span>&thinsp;<span id="currentYear"></span>
+        Chen Yikai. MIT License
       </p>
     </footer>
   </body>
 </html>
+<script>
+  document.querySelector("#currentYear").innerHTML += new Date().getFullYear();
+</script>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -266,6 +270,19 @@
   .under a:hover::after {
     width: 100%;
   }
+  /* Page transition */
+  body {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   /* icon */
   .arrow-outward {
@@ -280,5 +297,11 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+  }
+
+  /* Selection */
+  *::selection {
+    background-color: #97ffb5;
+    color: #000;
   }
 </style>
